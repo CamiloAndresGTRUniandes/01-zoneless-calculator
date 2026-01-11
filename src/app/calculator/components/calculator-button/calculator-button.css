@@ -1,0 +1,19 @@
+/* button {
+  width: var(--w-full);
+  height: var(--h-16);
+}
+
+/* ::ng-deep .is-command {
+  @apply w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light;
+  @apply bg-indigo-700 bg-opacity-20;
+}
+
+.is-command {
+
+  background-color: var(--indigo-700);
+  opacity: var(--bg-opacity-20);
+} */
+.is-pressed {
+  background-color: var(--color-indigo-500);
+
+}

@@ -1,0 +1,10 @@
+<!-- <div class="w-1/4 border-r border-b border-indigo-400">    [class.is-pressed]="isPressed()"-->
+<button
+class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-500 hover:bg-opacity-20 text-white text-xl font-light"
+[class.is-pressed]="isPressed()"
+(click)="handleClick()"
+#button
+>
+  <ng-content />
+</button>
+<!-- </div> -->
