@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, input, OnI
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './calculator-button.css',
   host: {
-    '[class]': 'this.getClassList()',
+    '[class]': 'this.getButtonClassList()',
     //class: 'w-1/4 border-r border-b border-indigo-400',
     // attribute: 'hola',
     // 'data-size': 'XL',
