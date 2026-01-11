@@ -1,11 +1,11 @@
-<div
-  class="w-screen h-40 bg-gradient-to-b from-gray-800 to-gray-700 flex items-end text-right"
-  style="max-width: 300px"
->
+<div class="w-screen h-40 bg-gradient-to-b from-gray-800 to-gray-700 flex items-end text-right"
+  style="max-width: 300px">
   <div class="w-full py-5 px-6 text-6xl text-white font-thin">
-    <span class="text-4xl"> 50 + </span>
+    @if( subResultText() !== '0'){
+    <span class="text-4xl"> {{ subResultText() }} {{ lastOperator() }}</span>
     <br />
-    <span>340.0</span>
+    }
+    <span>{{ resultText() }}</span>
   </div>
 </div>
 <div class="w-full bg-gradient-to-b from-indigo-400 to-indigo-500">
@@ -37,7 +37,6 @@
   <div class="flex w-full">
     <calculator-button (onClick)="handleClick($event)">0</calculator-button>
     <calculator-button (onClick)="handleClick($event)">.</calculator-button>
-
     <calculator-button isCommand isDoubleSize (onClick)="handleClick($event)"> = </calculator-button>
   </div>
 </div>

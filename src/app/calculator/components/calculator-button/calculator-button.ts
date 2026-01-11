@@ -8,6 +8,8 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, input, OnI
   styleUrl: './calculator-button.css',
   host: {
     '[class]': 'this.getButtonClassList()',
+    // '[class.w2/4]': 'isDoubleSize()',
+    // '[class.w1/4]': '!isDoubleSize()',
     //class: 'w-1/4 border-r border-b border-indigo-400',
     // attribute: 'hola',
     // 'data-size': 'XL',
