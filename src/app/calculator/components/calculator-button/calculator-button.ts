@@ -48,7 +48,7 @@ export class CalculatorButton {
   }
 
   // Generate class list based on inputs
-  public getClassList() {
+  public getButtonClassList() {
     const classes = [
       'h-16',
       'outline-none',
