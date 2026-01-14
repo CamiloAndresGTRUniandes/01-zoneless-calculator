@@ -38,7 +38,7 @@ export class Calculator {
       '*': '×'
     };
     const mappedKey = KeyEquivalents[event.key] ?? event.key;
-    this.handleClick(mappedKey);
+    this.handleClick(mappedKey.toUpperCase());
     this.calculatorButtons().forEach((button) => {
       button.keyboardPressedStyle(mappedKey);
     });
