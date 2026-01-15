@@ -1,8 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const operators = ['+', '-', '×', '÷'];
-const specialOperators = ['C', '=', '.', '+/-', '%', 'Backspace'];
+const operators = ['+', '-', '×', '÷', '%'];
+const specialOperators = ['C', '=', '.', '+/-', 'Backspace'];
 // Calculator service to perform calculations - global singleton
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class Calculator {
       this.deleteLastEntry(value);
       return;
     }
-
+    // Calculate result
     if (value === '=') {
       this.calculateResult();
       return;
@@ -105,6 +105,9 @@ export class Calculator {
         break;
       case '÷':
         finalResult = subResult / currentResult;
+        break;
+      case '%':
+        finalResult = (subResult * currentResult) / 100;
         break;
     }
     this.resultText.set(finalResult.toString().slice(0, 10));
