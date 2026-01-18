@@ -14,7 +14,10 @@ export class Calculator {
 
   public buildNumber(value: string): void {
     //input validation
-    if (![...numbers, ...operators, ...specialOperators].includes(value)) return;
+    if (![...numbers, ...operators, ...specialOperators].includes(value)) {
+      console.log('Invalid input:', value);
+      return;
+    }
 
     // Clear all
     if (value.toUpperCase() === 'C') {

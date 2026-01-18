@@ -40,7 +40,7 @@ export class CalculatorButton {
   // Handle keyboard press style
   public keyboardPressedStyle(key: string) {
     if (!this.contentValue()) return;
-    const value = this.contentValue()!.nativeElement.innerText.trim();
+    const value = this.contentValue()!.nativeElement.innerText?.trim();
     if (value !== key) return;
 
     this.isPressed.set(true);

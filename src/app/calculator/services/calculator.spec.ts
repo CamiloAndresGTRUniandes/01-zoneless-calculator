@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Calculator as CalculatorService } from './calculator';
+import { vi } from 'vitest';
 
 describe('CalculatorService', () => {
   let service: CalculatorService;
@@ -7,6 +8,8 @@ describe('CalculatorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(CalculatorService);
+
+    vi.resetAllMocks();
   });
 
   it('should create the calculator service', () => {
@@ -129,16 +132,27 @@ describe('CalculatorService', () => {
   });
 
   it('should handle max length', () => {
+    //spy on console.log
+    const consoleSpy = vi.spyOn(console, 'log');
+    //mock implementation to avoid actual logging
+    consoleSpy.mockImplementation(() => { });
+
     for (let i = 0; i < 12; i++) {
       service.buildNumber('9');
     }
     expect(service.resultText()).toBe('9999999999');
     expect(service.resultText().length).toBe(10);
+    expect(consoleSpy).not.toHaveBeenCalled();
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
   });
 
   it('should handle invalid input', () => {
+    //spy on console.log
+    const consoleSpy = vi.spyOn(console, 'log');
     service.buildNumber('A');
     expect(service.resultText()).toBe('0');
+    expect(consoleSpy).toHaveBeenCalledWith('Invalid input:', 'A');
+    expect(consoleSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should handle negative zero input correctly', () => {
@@ -186,4 +200,13 @@ describe('CalculatorService', () => {
     service.buildNumber('=');
     expect(service.resultText()).toBe('10');
   });
+
+  // it('should handle if current value is -0 and new value is entered', () => {
+  //   service.buildNumber('1');
+  //   service.buildNumber('+/-');
+  //   expect(service.resultText()).toBe('-1');
+  //   service.buildNumber('Backspace');
+  //   service.buildNumber('3');
+  //   expect(service.resultText()).toBe('-3');
+  // });
 });
